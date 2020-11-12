@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!-- load static use to load static path(contain path of external css js files) into html page-->
+{% load static %}
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <!-- below static 'css/bootstrap.min.css' says in static folder into that 
+    css folder bootstrap.min.css file present
+    i.e. it gives path of css file-->
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css"%}'>
+    <script  src='{% static "javascript/bootstrap.min.js"%}'></script>
+    <script  src='{% static "javascript/popper.min.js"%}'> </script>
+    <script  src='{% static "javascript/bootstrap.min.js"%}'></script>
+    <title>Analisis</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a href="#" class="navbar-brand">analysis.org</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Toggle_Div">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="Toggle_Div">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href='/home' class='nav-link'>Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/service">Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Index</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/stackHolders">StackHolder</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action='/textanalyser_response' method='post'>
+            <input class=" form-control mr-sm-2" type="text" placeholder="Search">
+            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>
+        </form>
+    </div>    
+</nav>
+<br>
+<div class="container">
+    <!-- in form action we call function textanalyser_response present in  views.py-->
+    <form action='/textanalyser_response' method='post'>
+        {% csrf_token %}
+    <div class="alert alert-success my-3 alert-dismissible">Hey visitors lets do fun please enter data and click on below check-box to see fun<button class="close" data-dismiss="alert">&times;</button></div>
+    <textarea class="form-control my-3 py-4" name='text1'></textarea>
+<br>
+ <input type='checkbox' name='check1' class='1' id='1' value='1'> remove punctuations <br>
+    <input type='checkbox' name='check2' class='2' id='2' value='2'> Convert into uppercase <br>
+    <input type='checkbox' name='check3' class='3' id='3' value='3'>  new line remover <br>
+    <input type='checkbox' name='check4' class='4' id='4' value='4'>  space remover <br>
+    <input type='checkbox' name='check5' class='5' id='5' value='5'>  count alphabet <br>
+<button class="btn btn-info my-3 " >Submit</button>
+</form>
+</div>
+</body>
+</html>

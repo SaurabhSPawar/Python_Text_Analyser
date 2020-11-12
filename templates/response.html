@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href='{% static "css/bootstrap.min.css"%}'>
+    <script  src='{% static "javascript/bootstrap.min.js"%}'></script>
+    <script  src='{% static "javascript/popper.min.js"%}'> </script>
+    <script  src='{% static "javascript/bootstrap.min.js"%}'></script>
+    <title>text analyzer response </title>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a href="#" class="navbar-brand">analysis.org</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#Toggle_Div">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="Toggle_Div">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a href='/home' class='nav-link'>Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="/about" class="nav-link">About</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/service">Service</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/">Index</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link " href="/textanalyser">StackHolders</a>
+            </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0" action='/textanalyser_response' method='post'>
+            <input class=" form-control mr-sm-2" type="text" placeholder="Search">
+            <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Submit</button>
+        </form>
+    </div>
+</nav>
+<br>
+<div class="container                 bg-light">
+    <h1 class="display-1">{{purpose}}</h1><br>
+    <text class="text-success font-weight-bold">Outout is: </text> <kbd>{{outputstr}}</kbd><br>
+    <text class="text-success font-weight-bold">If you request count then count : </text><kbd>{{count}}</kbd><br><br>
+</div>
+</body>
+</html>
