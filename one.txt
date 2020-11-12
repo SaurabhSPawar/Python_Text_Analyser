@@ -1,0 +1,15 @@
+<html>
+<head>
+<title>
+this is text page
+</title>
+</head>
+<body>
+<h3> Our products are</h3>
+<ul>
+<li>apple</li>
+<li>banana</li>
+<li>orange</li>
+</ul>
+</body>
+</html>
